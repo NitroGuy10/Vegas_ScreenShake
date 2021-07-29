@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ScreenShake
 {
-    public partial class Form1 : Form
+    public partial class GUI : Form
     {
-        public Form1()
+        public GUI()
         {
             InitializeComponent();
         }
@@ -22,6 +22,7 @@ namespace ScreenShake
             // Clear all animations from the Picture In Picture
 
             // Add shake keyframes to Picture In Picture based on settings
+            ScreenShake.Apply();
         }
     }
 }
