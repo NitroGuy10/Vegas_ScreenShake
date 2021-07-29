@@ -1,5 +1,5 @@
 ﻿
-namespace ScreenShake_Forms
+namespace ScreenShake
 {
     partial class Form1
     {

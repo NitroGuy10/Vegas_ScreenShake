@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 using ScriptPortal.Vegas;
 
-namespace ScreenShake_Forms
+namespace ScreenShake
 {
     public class EntryPoint
     {

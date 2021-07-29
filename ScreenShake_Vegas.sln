@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScreenShake_Forms", "ScreenShake_Forms.csproj", "{46C962A3-E43E-4ABF-B78E-7252773DA280}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScreenShake_Vegas", "ScreenShake_Vegas.csproj", "{46C962A3-E43E-4ABF-B78E-7252773DA280}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
