@@ -19,10 +19,16 @@ namespace ScreenShake
 
         private void applyBtn_Click(object sender, EventArgs e)
         {
-            // Clear all animations from the Picture In Picture
-
             // Add shake keyframes to Picture In Picture based on settings
-            ScreenShake.Apply();
+            if (VegasH.appliedAnimation)
+            {
+                MessageBox.Show("You cannot apply the animation more than once. Instead, close the script and run it again.");
+            }
+            else
+            {
+                VegasH.appliedAnimation = true;
+                ScreenShake.Apply();
+            }
         }
     }
 }

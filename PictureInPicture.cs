@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Linq;
 using ScriptPortal.Vegas;
+using System.Windows.Forms;
 
 namespace ScreenShake
 {
     public class PictureInPicture
     {
         public VideoEvent VideoEvent;
-        public OFXEffect OFXEffect;
+        public Effect Effect;
 
         public OFXDouble2DParameter location;
 
@@ -15,18 +16,26 @@ namespace ScreenShake
         {
             VideoEvent = videoEvent;
             VideoEvent.Effects.AddEffect(VegasH.vegas.VideoFX.GetChildByName("VEGAS Picture In Picture"));
-            OFXEffect = videoEvent.Effects[videoEvent.Effects.Count - 1].OFXEffect;
+            Effect = videoEvent.Effects[videoEvent.Effects.Count - 1];
 
             location = (OFXDouble2DParameter)OFXEffect.FindParameterByName("Location");
         }
 
+        public OFXEffect OFXEffect
+        {
+            get
+            {
+                return Effect.OFXEffect;
+            }
+        }
+
         public void MakeLocationKeyframe (double x, double y)
         {
-            // TODO but actually make a keyframe instead of just changing the parameter value
             OFXDouble2D newLocation = new OFXDouble2D();
             newLocation.X = x;
             newLocation.Y = y;
-            location.Value = newLocation;
+
+            location.SetValueAtTime(VideoEvent.End, newLocation);
             location.ParameterChanged();
         }
     }

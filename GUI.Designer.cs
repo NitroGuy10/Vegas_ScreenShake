@@ -42,14 +42,14 @@ namespace ScreenShake
             this.applyBtn.UseVisualStyleBackColor = true;
             this.applyBtn.Click += new System.EventHandler(this.applyBtn_Click);
             // 
-            // Form1
+            // GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.applyBtn);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "GUI";
+            this.Text = "NitroGuy\'s ScreenShake";
             this.ResumeLayout(false);
 
         }

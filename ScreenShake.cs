@@ -61,7 +61,11 @@ namespace ScreenShake
                     // Make keyframe here
                     Console.WriteLine(string.Format("({0}, {1}) - {2}", offsetPosX, offsetPosY, rotation));
                 }
+
+                // For testing
+                pip.MakeLocationKeyframe(1, 1);
             }          
+
         }
 
         static double GetLerpNoise(double position, bool isY = false)

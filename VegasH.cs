@@ -12,6 +12,8 @@ namespace ScreenShake
         public static Vegas vegas;
         private static Dictionary<VideoEvent, PictureInPicture> pictureInPictures = new Dictionary<VideoEvent, PictureInPicture>();
 
+        public static bool appliedAnimation = false;
+
         public static List<PictureInPicture> PictureInPictures
         {
             // Get the PictureInPicture object for every selected clip

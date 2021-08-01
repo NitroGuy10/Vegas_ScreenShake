@@ -11,8 +11,9 @@ namespace ScreenShake
         static void Main()
         {
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GUI());
+            // Application.SetCompatibleTextRenderingDefault(false);
+            // Application.Run(new GUI());
+            new GUI().ShowDialog();
         }
         public void FromVegas(Vegas vegas)
         {
