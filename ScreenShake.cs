@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using ScriptPortal.Vegas;
+using System.Windows.Forms;
 
 namespace ScreenShake
 {
@@ -25,8 +26,8 @@ namespace ScreenShake
             double seed = 1234; // Some double between 1-200, or 0 for random
             double rotationSpeed = 0.15;  // Higher value == slower speed
             double rotationIntensity = 0.008;
-            double shakeSpeed = 0.016;
-            double shakeIntensity = 200;
+            double shakeSpeed = 0.8;  // good range: 0.6 - ???
+            double shakeIntensity = 1;  // previously 200
             double roughness = 0.01;  // Determines lerp amount, scale of 0-1
 
 
@@ -58,12 +59,9 @@ namespace ScreenShake
                     offsetPosX = Lerp(offsetPosX, nextPosX, roughness);
                     offsetPosY = Lerp(offsetPosY, nextPosY, roughness);
 
-                    // Make keyframe here
+                    pip.MakeLocationKeyframe(0.5 + offsetPosX, 0.5 + offsetPosY, Timecode.FromFrames(pip.VideoEvent.Start.FrameCount + frame));
                     Console.WriteLine(string.Format("({0}, {1}) - {2}", offsetPosX, offsetPosY, rotation));
                 }
-
-                // For testing
-                pip.MakeLocationKeyframe(1, 1);
             }          
 
         }

@@ -11,6 +11,7 @@ namespace ScreenShake
         public Effect Effect;
 
         public OFXDouble2DParameter location;
+        public OFXDoubleParameter angle;
 
         public PictureInPicture(VideoEvent videoEvent)
         {
@@ -19,6 +20,11 @@ namespace ScreenShake
             Effect = videoEvent.Effects[videoEvent.Effects.Count - 1];
 
             location = (OFXDouble2DParameter)OFXEffect.FindParameterByName("Location");
+            angle = (OFXDoubleParameter)OFXEffect.FindParameterByName("Angle");
+
+            OFXDoubleParameter scale = (OFXDoubleParameter)OFXEffect.FindParameterByName("Scale");
+            scale.Value = 1;
+            scale.ParameterChanged();
         }
 
         public OFXEffect OFXEffect
@@ -29,14 +35,20 @@ namespace ScreenShake
             }
         }
 
-        public void MakeLocationKeyframe (double x, double y)
+        public void MakeLocationKeyframe (double x, double y, Timecode time)
         {
             OFXDouble2D newLocation = new OFXDouble2D();
             newLocation.X = x;
             newLocation.Y = y;
 
-            location.SetValueAtTime(VideoEvent.End, newLocation);
+            location.SetValueAtTime(time, newLocation);
             location.ParameterChanged();
+        }
+
+        public void MakeAngleKeyframe(double rotation, Timecode time)
+        {
+            angle.SetValueAtTime(time, rotation);
+            angle.ParameterChanged();
         }
     }
 }
