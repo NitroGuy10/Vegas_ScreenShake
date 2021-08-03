@@ -40,14 +40,20 @@ namespace ScreenShake
             this.shakeIntensityLabel = new System.Windows.Forms.Label();
             this.shakeSpeedSlider = new System.Windows.Forms.TrackBar();
             this.shakeSpeedTextBox = new System.Windows.Forms.TextBox();
+            this.shakeIntensitySlider = new System.Windows.Forms.TrackBar();
+            this.shakeIntensityTextBox = new System.Windows.Forms.TextBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.shakeSpeedSlider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shakeIntensitySlider)).BeginInit();
             this.SuspendLayout();
             // 
             // applyBtn
             // 
-            this.applyBtn.Location = new System.Drawing.Point(217, 350);
+            this.applyBtn.Location = new System.Drawing.Point(12, 363);
             this.applyBtn.Name = "applyBtn";
-            this.applyBtn.Size = new System.Drawing.Size(190, 66);
+            this.applyBtn.Size = new System.Drawing.Size(395, 53);
             this.applyBtn.TabIndex = 0;
             this.applyBtn.Text = "Apply";
             this.applyBtn.UseVisualStyleBackColor = true;
@@ -119,7 +125,7 @@ namespace ScreenShake
             // shakeIntensityLabel
             // 
             this.shakeIntensityLabel.AutoSize = true;
-            this.shakeIntensityLabel.Location = new System.Drawing.Point(15, 257);
+            this.shakeIntensityLabel.Location = new System.Drawing.Point(15, 241);
             this.shakeIntensityLabel.Name = "shakeIntensityLabel";
             this.shakeIntensityLabel.Size = new System.Drawing.Size(80, 13);
             this.shakeIntensityLabel.TabIndex = 8;
@@ -128,7 +134,7 @@ namespace ScreenShake
             // shakeSpeedSlider
             // 
             this.shakeSpeedSlider.Location = new System.Drawing.Point(101, 209);
-            this.shakeSpeedSlider.Maximum = 60;
+            this.shakeSpeedSlider.Maximum = 600;
             this.shakeSpeedSlider.Minimum = 6;
             this.shakeSpeedSlider.Name = "shakeSpeedSlider";
             this.shakeSpeedSlider.Size = new System.Drawing.Size(187, 45);
@@ -139,18 +145,80 @@ namespace ScreenShake
             // 
             // shakeSpeedTextBox
             // 
-            this.shakeSpeedTextBox.Location = new System.Drawing.Point(295, 209);
+            this.shakeSpeedTextBox.Location = new System.Drawing.Point(294, 209);
             this.shakeSpeedTextBox.Name = "shakeSpeedTextBox";
             this.shakeSpeedTextBox.Size = new System.Drawing.Size(100, 20);
             this.shakeSpeedTextBox.TabIndex = 10;
-            this.shakeSpeedTextBox.Text = "6";
+            this.shakeSpeedTextBox.Text = "8";
             this.shakeSpeedTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.shakeSpeedTextBox_KeyDown);
+            // 
+            // shakeIntensitySlider
+            // 
+            this.shakeIntensitySlider.Location = new System.Drawing.Point(101, 241);
+            this.shakeIntensitySlider.Maximum = 100;
+            this.shakeIntensitySlider.Minimum = 1;
+            this.shakeIntensitySlider.Name = "shakeIntensitySlider";
+            this.shakeIntensitySlider.Size = new System.Drawing.Size(187, 45);
+            this.shakeIntensitySlider.TabIndex = 13;
+            this.shakeIntensitySlider.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.shakeIntensitySlider.Value = 5;
+            this.shakeIntensitySlider.Scroll += new System.EventHandler(this.shakeIntensitySlider_Scroll);
+            // 
+            // shakeIntensityTextBox
+            // 
+            this.shakeIntensityTextBox.Location = new System.Drawing.Point(294, 241);
+            this.shakeIntensityTextBox.Name = "shakeIntensityTextBox";
+            this.shakeIntensityTextBox.Size = new System.Drawing.Size(100, 20);
+            this.shakeIntensityTextBox.TabIndex = 14;
+            this.shakeIntensityTextBox.Text = "0.2";
+            this.shakeIntensityTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.shakeIntensityTextBox_KeyDown);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox1.Location = new System.Drawing.Point(51, 326);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(33, 17);
+            this.checkBox1.TabIndex = 16;
+            this.checkBox1.Text = "X";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Checked = true;
+            this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox2.Location = new System.Drawing.Point(90, 326);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(33, 17);
+            this.checkBox2.TabIndex = 17;
+            this.checkBox2.Text = "Y";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Checked = true;
+            this.checkBox3.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox3.Location = new System.Drawing.Point(129, 326);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(66, 17);
+            this.checkBox3.TabIndex = 18;
+            this.checkBox3.Text = "Rotation";
+            this.checkBox3.UseVisualStyleBackColor = true;
             // 
             // GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(419, 428);
+            this.Controls.Add(this.checkBox3);
+            this.Controls.Add(this.checkBox2);
+            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.shakeIntensityTextBox);
+            this.Controls.Add(this.shakeIntensitySlider);
             this.Controls.Add(this.shakeSpeedTextBox);
             this.Controls.Add(this.shakeSpeedSlider);
             this.Controls.Add(this.shakeIntensityLabel);
@@ -165,6 +233,7 @@ namespace ScreenShake
             this.Name = "GUI";
             this.Text = "NitroGuy\'s ScreenShake";
             ((System.ComponentModel.ISupportInitialize)(this.shakeSpeedSlider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shakeIntensitySlider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -183,6 +252,11 @@ namespace ScreenShake
         private System.Windows.Forms.Label shakeIntensityLabel;
         private System.Windows.Forms.TrackBar shakeSpeedSlider;
         private System.Windows.Forms.TextBox shakeSpeedTextBox;
+        private System.Windows.Forms.TrackBar shakeIntensitySlider;
+        private System.Windows.Forms.TextBox shakeIntensityTextBox;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkBox3;
     }
 }
 
