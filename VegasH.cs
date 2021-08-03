@@ -10,14 +10,11 @@ namespace ScreenShake
     public static class VegasH
     {
         public static Vegas vegas;
-        private static Dictionary<VideoEvent, PictureInPicture> pictureInPictures = new Dictionary<VideoEvent, PictureInPicture>();
+        public static GUI gui;
 
-        public static bool appliedAnimation = false;
-
-        public static List<PictureInPicture> PictureInPictures
+        public static List<PictureInPicture> NewPictureInPictures
         {
-            // Get the PictureInPicture object for every selected clip
-            // If a clip does not have one, create it
+            // Create a new PictureInPicture object for every selected clip
             get
             {
                 List<PictureInPicture> list = new List<PictureInPicture>();
@@ -27,12 +24,7 @@ namespace ScreenShake
                     {
                         if (trackEvent.Selected && trackEvent.MediaType == MediaType.Video)
                         {
-                            VideoEvent videoEvent = (VideoEvent)trackEvent;
-                            if (!pictureInPictures.ContainsKey(videoEvent))
-                            {
-                                pictureInPictures[videoEvent] = new PictureInPicture(videoEvent);
-                            }
-                            list.Add(pictureInPictures[videoEvent]);
+                            list.Add(new PictureInPicture((VideoEvent)trackEvent));
                         }
                     }
                 }

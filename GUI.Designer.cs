@@ -39,7 +39,7 @@ namespace ScreenShake
             this.shakeSpeedLabel = new System.Windows.Forms.Label();
             this.shakeIntensityLabel = new System.Windows.Forms.Label();
             this.shakeSpeedSlider = new System.Windows.Forms.TrackBar();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.shakeSpeedTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.shakeSpeedSlider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,6 +61,7 @@ namespace ScreenShake
             this.defaultSettingsBtn.TabIndex = 1;
             this.defaultSettingsBtn.Text = "Use Default Settings";
             this.defaultSettingsBtn.UseVisualStyleBackColor = true;
+            this.defaultSettingsBtn.Click += new System.EventHandler(this.defaultSettingsBtn_Click);
             // 
             // seedBox
             // 
@@ -136,19 +137,21 @@ namespace ScreenShake
             this.shakeSpeedSlider.Value = 6;
             this.shakeSpeedSlider.Scroll += new System.EventHandler(this.shakeSpeedSlider_Scroll);
             // 
-            // textBox1
+            // shakeSpeedTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(295, 209);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 10;
+            this.shakeSpeedTextBox.Location = new System.Drawing.Point(295, 209);
+            this.shakeSpeedTextBox.Name = "shakeSpeedTextBox";
+            this.shakeSpeedTextBox.Size = new System.Drawing.Size(100, 20);
+            this.shakeSpeedTextBox.TabIndex = 10;
+            this.shakeSpeedTextBox.Text = "6";
+            this.shakeSpeedTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.shakeSpeedTextBox_KeyDown);
             // 
             // GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(419, 428);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.shakeSpeedTextBox);
             this.Controls.Add(this.shakeSpeedSlider);
             this.Controls.Add(this.shakeIntensityLabel);
             this.Controls.Add(this.shakeSpeedLabel);
@@ -179,7 +182,7 @@ namespace ScreenShake
         private System.Windows.Forms.Label shakeSpeedLabel;
         private System.Windows.Forms.Label shakeIntensityLabel;
         private System.Windows.Forms.TrackBar shakeSpeedSlider;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox shakeSpeedTextBox;
     }
 }
 

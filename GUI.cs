@@ -15,19 +15,39 @@ namespace ScreenShake
         public GUI()
         {
             InitializeComponent();
+
+            new SettingControl(shakeSpeedSlider, shakeSpeedTextBox, 0.1, 0.6, "Shake Speed");
         }
 
         private void applyBtn_Click(object sender, EventArgs e)
         {
             // Add shake keyframes to Picture In Picture based on settings
-            if (VegasH.appliedAnimation)
+            ScreenShake.Apply();
+            Close();
+        }
+
+        private void defaultSettingsBtn_Click(object sender, EventArgs e)
+        {
+            foreach (SettingControl setting in SettingControl.SettingControls.Values)
             {
-                MessageBox.Show("You cannot apply the animation more than once. Instead, close the script and run it again.");
+                setting.Value = setting.defaultValue;
             }
-            else
+        }
+
+        private void shakeSpeedSlider_Scroll(object sender, EventArgs e)
+        {
+            if (SettingControl.SettingControls.ContainsKey("Shake Speed"))
             {
-                VegasH.appliedAnimation = true;
-                ScreenShake.Apply();
+                SettingControl.SettingControls["Shake Speed"].UpdateFromSlider();
+            }
+        }
+
+        private void shakeSpeedTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SettingControl.SettingControls["Shake Speed"].UpdateFromTextBox();
+                e.Handled = true;
             }
         }
     }

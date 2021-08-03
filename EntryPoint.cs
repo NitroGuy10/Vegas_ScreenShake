@@ -13,13 +13,18 @@ namespace ScreenShake
             Application.EnableVisualStyles();
             // Application.SetCompatibleTextRenderingDefault(false);
             // Application.Run(new GUI());
-            new GUI().ShowDialog();
+            if (VegasH.gui == null)
+            {
+                VegasH.gui = new GUI();
+            }
+            VegasH.gui.ShowDialog();
         }
         public void FromVegas(Vegas vegas)
         {
-            VegasH.vegas = vegas;
-            // TODO previous settings should be stored in a file and read upon opening script
-
+            if (VegasH.vegas == null)
+            {
+                VegasH.vegas = vegas;
+            }
             Main();
         }
     }

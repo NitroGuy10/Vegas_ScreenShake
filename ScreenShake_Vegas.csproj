@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SettingControl.cs" />
     <Compile Include="VegasH.cs" />
     <Compile Include="PictureInPicture.cs" />
     <Compile Include="GUI.cs">
