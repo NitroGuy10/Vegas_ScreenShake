@@ -41,7 +41,7 @@ namespace ScreenShake
             {
                 Value = Double.Parse(textBox.Text);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 Value = Value;
             }

@@ -42,16 +42,21 @@ namespace ScreenShake
             this.shakeSpeedTextBox = new System.Windows.Forms.TextBox();
             this.shakeIntensitySlider = new System.Windows.Forms.TrackBar();
             this.shakeIntensityTextBox = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.xCheckBox = new System.Windows.Forms.CheckBox();
+            this.yCheckBox = new System.Windows.Forms.CheckBox();
+            this.rotationIntensitySlider = new System.Windows.Forms.TrackBar();
+            this.rotationSpeedSlider = new System.Windows.Forms.TrackBar();
+            this.rotationIntensityTextBox = new System.Windows.Forms.TextBox();
+            this.rotationSpeedTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.shakeSpeedSlider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shakeIntensitySlider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rotationIntensitySlider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rotationSpeedSlider)).BeginInit();
             this.SuspendLayout();
             // 
             // applyBtn
             // 
-            this.applyBtn.Location = new System.Drawing.Point(12, 363);
+            this.applyBtn.Location = new System.Drawing.Point(9, 329);
             this.applyBtn.Name = "applyBtn";
             this.applyBtn.Size = new System.Drawing.Size(395, 53);
             this.applyBtn.TabIndex = 0;
@@ -98,7 +103,7 @@ namespace ScreenShake
             // rotationSpeedLabel
             // 
             this.rotationSpeedLabel.AutoSize = true;
-            this.rotationSpeedLabel.Location = new System.Drawing.Point(14, 133);
+            this.rotationSpeedLabel.Location = new System.Drawing.Point(14, 126);
             this.rotationSpeedLabel.Name = "rotationSpeedLabel";
             this.rotationSpeedLabel.Size = new System.Drawing.Size(81, 13);
             this.rotationSpeedLabel.TabIndex = 5;
@@ -107,7 +112,7 @@ namespace ScreenShake
             // rotationIntensityLabel
             // 
             this.rotationIntensityLabel.AutoSize = true;
-            this.rotationIntensityLabel.Location = new System.Drawing.Point(6, 164);
+            this.rotationIntensityLabel.Location = new System.Drawing.Point(6, 158);
             this.rotationIntensityLabel.Name = "rotationIntensityLabel";
             this.rotationIntensityLabel.Size = new System.Drawing.Size(89, 13);
             this.rotationIntensityLabel.TabIndex = 6;
@@ -173,50 +178,81 @@ namespace ScreenShake
             this.shakeIntensityTextBox.Text = "0.2";
             this.shakeIntensityTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.shakeIntensityTextBox_KeyDown);
             // 
-            // checkBox1
+            // xCheckBox
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(51, 326);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(33, 17);
-            this.checkBox1.TabIndex = 16;
-            this.checkBox1.Text = "X";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.xCheckBox.AutoSize = true;
+            this.xCheckBox.Checked = true;
+            this.xCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.xCheckBox.Location = new System.Drawing.Point(177, 278);
+            this.xCheckBox.Name = "xCheckBox";
+            this.xCheckBox.Size = new System.Drawing.Size(33, 17);
+            this.xCheckBox.TabIndex = 16;
+            this.xCheckBox.Text = "X";
+            this.xCheckBox.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // yCheckBox
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Checked = true;
-            this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox2.Location = new System.Drawing.Point(90, 326);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(33, 17);
-            this.checkBox2.TabIndex = 17;
-            this.checkBox2.Text = "Y";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.yCheckBox.AutoSize = true;
+            this.yCheckBox.Checked = true;
+            this.yCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.yCheckBox.Location = new System.Drawing.Point(216, 278);
+            this.yCheckBox.Name = "yCheckBox";
+            this.yCheckBox.Size = new System.Drawing.Size(33, 17);
+            this.yCheckBox.TabIndex = 17;
+            this.yCheckBox.Text = "Y";
+            this.yCheckBox.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
+            // rotationIntensitySlider
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Checked = true;
-            this.checkBox3.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox3.Location = new System.Drawing.Point(129, 326);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(66, 17);
-            this.checkBox3.TabIndex = 18;
-            this.checkBox3.Text = "Rotation";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.rotationIntensitySlider.Location = new System.Drawing.Point(101, 158);
+            this.rotationIntensitySlider.Maximum = 300;
+            this.rotationIntensitySlider.Name = "rotationIntensitySlider";
+            this.rotationIntensitySlider.Size = new System.Drawing.Size(187, 45);
+            this.rotationIntensitySlider.TabIndex = 19;
+            this.rotationIntensitySlider.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.rotationIntensitySlider.Value = 10;
+            this.rotationIntensitySlider.Scroll += new System.EventHandler(this.rotationIntensitySlider_Scroll);
+            // 
+            // rotationSpeedSlider
+            // 
+            this.rotationSpeedSlider.Location = new System.Drawing.Point(101, 126);
+            this.rotationSpeedSlider.Maximum = 70;
+            this.rotationSpeedSlider.Minimum = 1;
+            this.rotationSpeedSlider.Name = "rotationSpeedSlider";
+            this.rotationSpeedSlider.Size = new System.Drawing.Size(187, 45);
+            this.rotationSpeedSlider.TabIndex = 20;
+            this.rotationSpeedSlider.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.rotationSpeedSlider.Value = 15;
+            this.rotationSpeedSlider.Scroll += new System.EventHandler(this.rotationSpeedSlider_Scroll);
+            // 
+            // rotationIntensityTextBox
+            // 
+            this.rotationIntensityTextBox.Location = new System.Drawing.Point(294, 158);
+            this.rotationIntensityTextBox.Name = "rotationIntensityTextBox";
+            this.rotationIntensityTextBox.Size = new System.Drawing.Size(100, 20);
+            this.rotationIntensityTextBox.TabIndex = 21;
+            this.rotationIntensityTextBox.Text = ".01";
+            this.rotationIntensityTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.rotationIntensityTextBox_KeyDown);
+            // 
+            // rotationSpeedTextBox
+            // 
+            this.rotationSpeedTextBox.Location = new System.Drawing.Point(294, 126);
+            this.rotationSpeedTextBox.Name = "rotationSpeedTextBox";
+            this.rotationSpeedTextBox.Size = new System.Drawing.Size(100, 20);
+            this.rotationSpeedTextBox.TabIndex = 22;
+            this.rotationSpeedTextBox.Text = "0.15";
+            this.rotationSpeedTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.rotationSpeedTextBox_KeyDown);
             // 
             // GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(419, 428);
-            this.Controls.Add(this.checkBox3);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
+            this.ClientSize = new System.Drawing.Size(419, 392);
+            this.Controls.Add(this.rotationSpeedTextBox);
+            this.Controls.Add(this.rotationIntensityTextBox);
+            this.Controls.Add(this.rotationIntensitySlider);
+            this.Controls.Add(this.yCheckBox);
+            this.Controls.Add(this.xCheckBox);
             this.Controls.Add(this.shakeIntensityTextBox);
             this.Controls.Add(this.shakeIntensitySlider);
             this.Controls.Add(this.shakeSpeedTextBox);
@@ -230,10 +266,16 @@ namespace ScreenShake
             this.Controls.Add(this.seedBox);
             this.Controls.Add(this.defaultSettingsBtn);
             this.Controls.Add(this.applyBtn);
+            this.Controls.Add(this.rotationSpeedSlider);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "GUI";
-            this.Text = "NitroGuy\'s ScreenShake";
+            this.Text = "NitroGuy\'s ScreenShake (v1.0)";
             ((System.ComponentModel.ISupportInitialize)(this.shakeSpeedSlider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shakeIntensitySlider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rotationIntensitySlider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rotationSpeedSlider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -254,9 +296,12 @@ namespace ScreenShake
         private System.Windows.Forms.TextBox shakeSpeedTextBox;
         private System.Windows.Forms.TrackBar shakeIntensitySlider;
         private System.Windows.Forms.TextBox shakeIntensityTextBox;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckBox xCheckBox;
+        private System.Windows.Forms.CheckBox yCheckBox;
+        private System.Windows.Forms.TrackBar rotationIntensitySlider;
+        private System.Windows.Forms.TrackBar rotationSpeedSlider;
+        private System.Windows.Forms.TextBox rotationIntensityTextBox;
+        private System.Windows.Forms.TextBox rotationSpeedTextBox;
     }
 }
 

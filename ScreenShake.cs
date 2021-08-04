@@ -9,16 +9,13 @@ namespace ScreenShake
     {
         public static void Apply()
         {
-            Console.WriteLine("Hello, ScreenShake!");
-
             // Parameters
-            int seed = 0; // 0 for random
-            double rotationSpeed = 0.15;  // Higher value == slower speed
-            double rotationIntensity = 0.008;
-            double shakeSpeed = SettingControl.SettingControls["Shake Speed"].Value;  // good range: 0.6 - 60
-            double shakeIntensity = SettingControl.SettingControls["Shake Intensity"].Value;  // good range: ??? - 1
+            string seed = VegasH.gui.Seed;  // 0 for random
+            double rotationSpeed = SettingControl.SettingControls["Rotation Speed"].Value;
+            double rotationIntensity = SettingControl.SettingControls["Rotation Intensity"].Value;
+            double shakeSpeed = SettingControl.SettingControls["Shake Speed"].Value;
+            double shakeIntensity = SettingControl.SettingControls["Shake Intensity"].Value;
 
-            // The x and y of the Picture In Picture effect for a given keyframe is (0.5 + offsetPosX, 0.5 + offsetPosY)
             double offsetPosX;
             double offsetPosY;
 
@@ -26,12 +23,15 @@ namespace ScreenShake
             
             foreach (PictureInPicture pip in VegasH.NewPictureInPictures)
             {
-                if (seed == 0)
+                FastNoiseLite noise;
+                if (seed.Equals("0"))
                 {
-                    seed = ((new Random()).Next() * 199) + 1;
+                    noise = new FastNoiseLite(((new Random()).Next() * 199) + 1);
                 }
-
-                FastNoiseLite noise = new FastNoiseLite(seed);
+                else
+                {
+                    noise = new FastNoiseLite(seed.GetHashCode());
+                }
                 noise.SetNoiseType(FastNoiseLite.NoiseType.Perlin);
 
                 for (int frame = 0; frame < pip.VideoEvent.Length.FrameCount /* or some more relevant value */; frame++)
@@ -42,6 +42,7 @@ namespace ScreenShake
                     offsetPosY = noise.GetNoise(0, (float)(frame * shakeSpeed)) * shakeIntensity;
 
                     pip.MakeLocationKeyframe(0.5 + offsetPosX, 0.5 + offsetPosY, Timecode.FromFrames(pip.VideoEvent.Start.FrameCount + frame));
+                    pip.MakeAngleKeyframe(rotation, Timecode.FromFrames(pip.VideoEvent.Start.FrameCount + frame));
                 }
             }          
 

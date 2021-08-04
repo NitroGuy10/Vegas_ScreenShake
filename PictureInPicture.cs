@@ -38,8 +38,22 @@ namespace ScreenShake
         public void MakeLocationKeyframe (double x, double y, Timecode time)
         {
             OFXDouble2D newLocation = new OFXDouble2D();
-            newLocation.X = x;
-            newLocation.Y = y;
+            if (VegasH.gui.shakeX)
+            {
+                newLocation.X = x;
+            }
+            else
+            {
+                newLocation.X = 0.5;
+            }
+            if (VegasH.gui.shakeY)
+            {
+                newLocation.Y = y;
+            }
+            else
+            {
+                newLocation.Y = 0.5;
+            }
 
             location.SetValueAtTime(time, newLocation);
             location.ParameterChanged();
