@@ -41,8 +41,8 @@ namespace ScreenShake
                     offsetPosX = noise.GetNoise((float)(frame * shakeSpeed), 0) * shakeIntensity;
                     offsetPosY = noise.GetNoise(0, (float)(frame * shakeSpeed)) * shakeIntensity;
 
-                    pip.MakeLocationKeyframe(0.5 + offsetPosX, 0.5 + offsetPosY, Timecode.FromFrames(pip.VideoEvent.Start.FrameCount + frame));
-                    pip.MakeAngleKeyframe(rotation, Timecode.FromFrames(pip.VideoEvent.Start.FrameCount + frame));
+                    pip.MakeLocationKeyframe(0.5 + offsetPosX, 0.5 + offsetPosY, Timecode.FromFrames(frame));
+                    pip.MakeAngleKeyframe(rotation, Timecode.FromFrames(frame));
                 }
             }          
 

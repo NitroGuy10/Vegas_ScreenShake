@@ -271,7 +271,7 @@ namespace ScreenShake
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "GUI";
-            this.Text = "NitroGuy\'s ScreenShake (v1.0)";
+            this.Text = "NitroGuy\'s ScreenShake (v1.1)";
             ((System.ComponentModel.ISupportInitialize)(this.shakeSpeedSlider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shakeIntensitySlider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rotationIntensitySlider)).EndInit();
