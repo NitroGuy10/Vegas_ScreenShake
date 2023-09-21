@@ -1,6 +1,12 @@
 # Vegas_ScreenShake
 A screen shake script/plugin for MAGIX VEGAS Pro 18 (although it should also work on previous versions)
 
+---
+
+## NOTE: This repo is not maintained and I will not be responding to any posted issues. Sorry :/
+
+---
+
 ![ScreenShake's Graphical User Interface](preview.png)
 
 This script accepts user settings from a Windows Forms dialog and adds a "screen shake" or "camera shake" effect to all currently selected video clips.
